@@ -29,8 +29,10 @@ const LeftCol = styled.div`
 
 const StyledTitle = styled.h2`
   padding-bottom: 30px;
-  max-width: 280px;
+  max-width: 550px;
   line-height: 50px;
+  font-size: 40px;
+  font-weight: 700;
 `
 
 const Illustration = styled.img`
