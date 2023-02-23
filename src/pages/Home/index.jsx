@@ -22,7 +22,7 @@ const LeftCol = styled.div`
   flex-direction: column;
   justify-content: center;
   flex: 1;
-  ${StyledLink} {
+  ${StyledLink} {n
     max-width: 250px;
   }
 `
