@@ -2,6 +2,7 @@ import styled from 'styled-components'
 import colors from '../../utiles/style/color'
 import { StyledLink } from '../../utiles/style/Atoms'
 import HomeIllustration from '../../assets/home-illustration.svg'
+import { useTheme } from '../../utiles/hooks'
 
 const HomeWrapper = styled.div`
   display: flex;
@@ -10,7 +11,8 @@ const HomeWrapper = styled.div`
 
 const HomerContainer = styled.div`
   margin: 30px;
-  background-color: ${colors.background};
+  background-color: ${({ theme }) =>
+    theme === 'light' ? colors.backgroundLight : colors.backgroundDark};
   padding: 60px 90px;
   display: flex;
   flex-direction: row;
@@ -22,29 +24,35 @@ const LeftCol = styled.div`
   flex-direction: column;
   justify-content: center;
   flex: 1;
-  ${StyledLink} {n
+  ${StyledLink} {
     max-width: 250px;
   }
 `
 
 const StyledTitle = styled.h2`
   padding-bottom: 30px;
-  max-width: 550px;
+  max-width: 280px;
   line-height: 50px;
-  font-size: 40px;
-  font-weight: 700;
+  color: ${({ theme }) => (theme === 'light' ? '#000000' : '#ffffff')};
 `
 
 const Illustration = styled.img`
   flex: 1;
 `
 
+export function sum(a, b) {
+  return a + b
+}
+
 function Home() {
+  const { theme } = useTheme()
+
   return (
     <HomeWrapper>
-      <HomerContainer>
+      <HomerContainer theme={theme}>
+        {sum(40, 2)}
         <LeftCol>
-          <StyledTitle>
+          <StyledTitle theme={theme}>
             Repérez vos besoins, on s’occupe du reste, avec les meilleurs
             talents
           </StyledTitle>
