@@ -40,13 +40,10 @@ function Freelances() {
     `http://localhost:8000/freelances`
   )
 
-  // Ici le "?" permet de s'assurer que data existe bien.
-  // Vous pouvez en apprendre davantage sur cette notation ici :
-  // https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Operators/Optional_chaining
   const freelancersList = data?.freelancersList
 
   if (error) {
-    return <span>Oups il y a eu un problème</span>
+    return <span data-testid="error">{error}</span>
   }
 
   return (
@@ -57,11 +54,11 @@ function Freelances() {
       </PageSubtitle>
       {isDataLoading ? (
         <LoaderWrapper>
-          <Loader theme={theme} />
+          <Loader theme={theme} data-testid="loader" />
         </LoaderWrapper>
       ) : (
         <CardsContainer>
-          {freelancersList.map((profile, index) => (
+          {freelancersList?.map((profile, index) => (
             <Card
               key={`${profile.name}-${index}`}
               label={profile.job}
