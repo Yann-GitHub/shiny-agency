@@ -5,6 +5,7 @@ import Survey from './pages/Survey'
 import Home from './pages/Home'
 import Header from './components/Header'
 import Footer from './components/Footer'
+import Profile from './pages/Profile'
 import Error from './components/Error'
 import Freelances from './pages/Freelances'
 import Results from './pages/Results'
@@ -31,7 +32,11 @@ ReactDOM.render(
             <Route path="/freelances">
               <Freelances />
             </Route>
-            <Route>
+            <Route
+              path="/profile/:id"
+              render={(props) => <Profile {...props} />}
+            />
+            <Route path="*">
               <Error />
             </Route>
           </Switch>

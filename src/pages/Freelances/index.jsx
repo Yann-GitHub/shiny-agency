@@ -1,5 +1,6 @@
-import Card from '../../components/Card'
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
+import Card from '../../components/Card'
 import colors from '../../utiles/style/color'
 import { Loader } from '../../utiles/style/Atoms'
 import { useFetch, useTheme } from '../../utiles/hooks'
@@ -43,7 +44,7 @@ function Freelances() {
   const freelancersList = data?.freelancersList
 
   if (error) {
-    return <span data-testid="error">{error}</span>
+    return <span>Il y a un problème</span>
   }
 
   return (
@@ -58,14 +59,15 @@ function Freelances() {
         </LoaderWrapper>
       ) : (
         <CardsContainer>
-          {freelancersList?.map((profile, index) => (
-            <Card
-              key={`${profile.name}-${index}`}
-              label={profile.job}
-              title={profile.name}
-              picture={profile.picture}
-              theme={theme}
-            />
+          {freelancersList?.map((profile) => (
+            <Link key={`freelance-${profile.id}`} to={`/profile/${profile.id}`}>
+              <Card
+                label={profile.job}
+                title={profile.name}
+                picture={profile.picture}
+                theme={theme}
+              />
+            </Link>
           ))}
         </CardsContainer>
       )}

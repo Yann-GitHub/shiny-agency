@@ -7,18 +7,20 @@ import {
 } from '@testing-library/react'
 import { render } from '../../utiles/test'
 import Freelances from './'
-import '@testing-library/jest-dom/extend-expect'
+// import '@testing-library/jest-dom/extend-expect'
 
 const freelancersMockedData = [
   {
     name: 'Harry Potter',
     job: 'Magicien frontend',
     picture: '',
+    id: 1,
   },
   {
     name: 'Hermione Granger',
     job: 'Magicienne fullstack',
     picture: '',
+    id: 2,
   },
 ]
 
@@ -39,6 +41,7 @@ it('Should display freelancers names', async () => {
   render(<Freelances />)
 
   await waitForElementToBeRemoved(() => screen.getByTestId('loader'))
+  //   await waitFor(() => expect(screen.getByTestId('loader')).toBeInTheDocument())
 
   await waitFor(() => {
     expect(screen.getByText('Harry Potter')).toBeInTheDocument()

@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types'
-import { useState } from 'react'
+// import { useState } from 'react'
 import styled from 'styled-components'
 import colors from '../../utiles/style/color'
-import { useTheme } from '../../utiles/hooks'
+// import { useTheme } from '../../utiles/hooks'
 import DefaultPicture from '../../assets/profile.png'
 import { Component } from 'react'
 
